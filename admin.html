@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="estilo.css" rel="stylesheet">
+    <link href="estilo.css" rel="stylesheet">
+</head>
+<body>
+    <!--NAVBAR INICIO-->
+    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark main-nav">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="room.html">Quartos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Criar Conta</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Hotel LP2</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Usuario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Suporte</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<!--NAVBAR FINAL-->
+<br>
+
+<div id="app" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div v-for="p in lista_produto" class="col-sm">
+                <div class="card-img-top" height="300">
+                    <img class="card-img-top" :src="p.foto" :alt="p.nome">
+                    <div class="card-body">
+                    <h5 class="card-title">{{p.nome}}</h5>
+                    <p class="card-text">Status: {{p.status}}.</p>
+                    <a href="#" @click="add(p)" class="btn btn-primary">MODIFICAR STATUS</a>
+                </div>
+            </div>  
+        </div>
+           
+        </div>
+    </div>
+
+    <hr>
+    
+    <table border="1"> 
+        <tr>
+            <td>Imagem</td>
+            <th>Quarto</th>
+            <th>Status</th>
+            <th>Pronto Para Uso</th>
+        </tr>
+    
+    
+    
+        <tr v-for="(p, num) in carrinho">
+            <td> <img class="card-img-top" style="height:10%; width:20%" :src="p.foto" :alt="p.nome"></td>
+            <td>{{p.nome}}</td>
+            <td>{{p.status}}</td>
+            <td>{{num}}</td>
+        </tr>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    carrinho: [],
+    lista_produto:[
+    {
+        foto: src="imagens/quarto1.jpg",
+        nome:"Quarto",
+        status: "Em Limpeza",
+    },
+    {
+        foto: src="imagens/quarto2.jpg",
+        nome:"Quarto",
+        status: "ALUGADO",
+    },
+    {
+        foto: src="imagens/quarto3.jpg",
+        nome:"Quarto",
+        status: "RESERVADO",
+    },
+
+    ]
+  },
+
+  methods: {
+    add(p) {
+      this.carrinho.push(p)
+      this.produto = {}
+    }
+  }
+})
+</script>
+<center>
+    <button type="button" class="btn btn-warning">COLOCAR QUARTO EM LIMPEZA</button>
+    <button type="button" class="btn btn-danger">COLOCAR QUARTO COMO ALUGADO</button>
+    <button type="button" class="btn btn-primary">COLOCAR QUARTO COMO RESERVADO</button>
+    <button type="button" class="btn btn-success">COLOCAR QUARTO COMO DISPONIVEL</button>
+</center>
+
+<br>
+</body>
+</html>

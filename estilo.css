@@ -1,0 +1,22 @@
+
+  .jumbotron {
+    background-image: url('imagens/hotelback.png');
+    padding: 125px;
+
+ }
+ table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-top: -8px;
+}
+
+td {
+  border: 1px solid green;
+  border-left-width: 0;
+  min-width: 120px;
+
+}
+
+td:first-child {
+  border-left-width: 1px;
+}
