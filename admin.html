@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,9 @@
     <title>Hotel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link href="estilo.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="estilo.css" rel="stylesheet">
 </head>
 <body>
@@ -44,85 +46,130 @@
 <!--NAVBAR FINAL-->
 <br>
 
-<div id="app" class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div v-for="p in lista_produto" class="col-sm">
-                <div class="card-img-top" height="300">
-                    <img class="card-img-top" :src="p.foto" :alt="p.nome">
-                    <div class="card-body">
-                    <h5 class="card-title">{{p.nome}}</h5>
-                    <p class="card-text">Status: {{p.status}}.</p>
-                    <a href="#" @click="add(p)" class="btn btn-primary">MODIFICAR STATUS</a>
-                </div>
-            </div>  
-        </div>
-           
-        </div>
+
+<!--CARD INICIO-->
+<div class="card-group">
+    <div class="card">
+      <img src="imagens/quarto1.jpg" class="card-img-top" height="300" alt="...">
+      <div class="card-body">
+        <center>
+        <h5 class="card-title">QUARTO 01</h5>
+        <p class="card-text">Apartamento Standard - Cama de casal.</p> 
+ 
+        <div class="">
+            <select class="custom-select btn btn-success text-center" id="validationDefault04" required>
+              <option selected disabled value="">Modificar Status</option>
+             
+              <option class="custom-select btn-warning text-center">LIMPEZA</option>
+              <option class="custom-select btn-danger text-center">ALUGADO</option>
+              <option class="custom-select btn-success text-center">DISPONIVEL</option>
+            </select>
+            <br>
+          </div>
+          <a href="reservlist.html" @click="add(p)" class="btn btn-primary">VER RESERVAS</a>
+        </center> 
     </div>
+    </div>
+    <div class="card">
+      <img src="imagens/quarto2.jpg" class="card-img-top" height="300"  alt="...">
+      <div class="card-body">
+        <center>
+        <h5 class="card-title">QUARTO 02</h5>
+        <p class="card-text">Apartamento Standard - Cama de casal.</p>
+        <div class="">
+            <select class="custom-select btn btn-success text-center" id="validationDefault04" required>
+              <option selected disabled value="">Modificar Status</option>
+              <option class="custom-select btn-warning text-center">LIMPEZA</option>
+              <option class="custom-select btn-danger text-center">ALUGADO</option>
+              <option class="custom-select btn-success text-center">DISPONIVEL</option>
+            </select>
+            <br>
+          </div>
+          <a href="reservlist.html" @click="add(p)" class="btn btn-primary">VER RESERVAS</a>
+        </center> 
+    </div>
+    </div>
+    <div class="card">
+      <img src="imagens/quarto3.jpg" class="card-img-top" height="300"  alt="...">
+      <div class="card-body">
+        <center>
+        <h5 class="card-title">QUARTO 03</h5>
+        <p class="card-text">Apartamento Standard - Cama de casal.</p>
+        <div class="">
+            <select class="custom-select btn btn-success text-center" id="validationDefault04" required>
+              <option selected disabled value="">Modificar Status</option>
+              <option class="custom-select btn-warning text-center">LIMPEZA</option>
+              <option class="custom-select btn-danger text-center">ALUGADO</option>
+              <option class="custom-select btn-success text-center">DISPONIVEL</option>
+            </select>
+            <br>
+          </div>
+          <a href="reservlist.html" @click="add(p)" class="btn btn-primary">VER RESERVAS</a>
+        </center>
+    </div>
+    </div>
+  </div>
 
-    <hr>
-    
-    <table border="1"> 
-        <tr>
-            <td>Imagem</td>
-            <th>Quarto</th>
-            <th>Status</th>
-            <th>Pronto Para Uso</th>
-        </tr>
-    
-    
-    
-        <tr v-for="(p, num) in carrinho">
-            <td> <img class="card-img-top" style="height:10%; width:20%" :src="p.foto" :alt="p.nome"></td>
-            <td>{{p.nome}}</td>
-            <td>{{p.status}}</td>
-            <td>{{num}}</td>
-        </tr>
-    </table>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-<script>
-new Vue({
-  el: '#app',
-  data: {
-    carrinho: [],
-    lista_produto:[
-    {
-        foto: src="imagens/quarto1.jpg",
-        nome:"Quarto",
-        status: "Em Limpeza",
-    },
-    {
-        foto: src="imagens/quarto2.jpg",
-        nome:"Quarto",
-        status: "ALUGADO",
-    },
-    {
-        foto: src="imagens/quarto3.jpg",
-        nome:"Quarto",
-        status: "RESERVADO",
-    },
-
-    ]
-  },
-
-  methods: {
-    add(p) {
-      this.carrinho.push(p)
-      this.produto = {}
-    }
-  }
-})
-</script>
-<center>
-    <button type="button" class="btn btn-warning">COLOCAR QUARTO EM LIMPEZA</button>
-    <button type="button" class="btn btn-danger">COLOCAR QUARTO COMO ALUGADO</button>
-    <button type="button" class="btn btn-primary">COLOCAR QUARTO COMO RESERVADO</button>
-    <button type="button" class="btn btn-success">COLOCAR QUARTO COMO DISPONIVEL</button>
-</center>
 
 <br>
+
+<br>
+
+<!--CARD INICIO-->
+<div class="card-group">
+    <div class="card">
+      <img src="imagens/quarto4.jpg" class="card-img-top" height="300" alt="...">
+      <div class="card-body">
+        <center>
+        <h5 class="card-title"> QUARTO 04</h5>
+        <p class="card-text">Apartamento Standard - Cama de casal.</p> 
+        <div class="">
+            <select class="custom-select btn btn-success text-center" id="validationDefault04" required>
+              <option selected disabled value="">Modificar Status</option>
+              <option class="custom-select btn-warning text-center">LIMPEZA</option>
+              <option class="custom-select btn-danger text-center">ALUGADO</option>
+              <option class="custom-select btn-success text-center">DISPONIVEL</option>
+            </select>
+            <br>
+          </div>
+          <a href="reservlist.html" @click="add(p)" class="btn btn-primary">VER RESERVAS</a>
+        </center>
+    </div>
+    </div>
+    <div class="card">
+      <img src="imagens/quarto4.jpg" class="card-img-top" height="300"  alt="...">
+      <div class="card-body">
+        <center>
+        <h5 class="card-title">QUARTO 05</h5>
+        <p class="card-text">Apartamento Standard - Cama de casal.</p>
+        <div class="">
+            <select class="custom-select btn btn-success text-center" id="validationDefault04" required>
+              <option selected disabled value="">Modificar Status</option>
+              <option class="custom-select btn-warning text-center">LIMPEZA</option>
+              <option class="custom-select btn-danger text-center">ALUGADO</option>
+              <option class="custom-select btn-success text-center">DISPONIVEL</option>
+            </select>
+            <br>
+          </div>
+          <a href="reservlist.html" @click="add(p)" class="btn btn-primary">VER RESERVAS</a>
+        </center>   
+    </div>
+    </div>
+    <div class="card">
+        <center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>    
+        <button type="button" class="btn btn-primary btn-lg btn-block">ADICIONAR QUARTO</button>
+        </center> 
+    </div>
+    </div>
+  </div>
 </body>
 </html>
